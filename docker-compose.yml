@@ -19,7 +19,7 @@ services:
   postgresqls:
     restart: always
     container_name: 'postgresqlpostgis'
-    image: 'postgis/postgis'
+    image: 'postgres:10.5'
     ports:
       - '5433:5432'
     volumes:

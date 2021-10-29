@@ -27,21 +27,28 @@ app.get('/', async (req, res) => {
   }
 });
 
-// get
-app.get('/get', async (req, res) => {
-  const getQuery = `select * from bookshelf`;
+// book
+app.get('/book/:bookId', async (req, res) => {
+  const bookId = req.params.bookId;
+  const getQuery = `select * from bookshelf WHERE id = ${bookId}`;
   const { rows } = await pool.query(getQuery);
   res.send(rows);
 });
 
 app.post('/book', async (req, res) => {
-  // ISBN
-  // Name
-  // Authors
-  // Short Annotation
-  const bookISBN = req.body.ISBN;
-  const bookName = req.body.name;
-  const insertQuery = `insert into bookshelf (ISBN, name) values (${bookISBN}, ${bookName});`;
+  // `isbn` varchar(30) NOT NULL,
+  // `name` varchar(50) NOT NULL,
+  // `authors` varchar(50) NOT NULL,
+  // `annotation` varchar(100) NOT NULL,
+  const isbn = req.body.isbn ? req.body.isbn : '';
+  const name = req.body.name ? req.body.name : '';
+  const authors = req.body.authors ? req.body.authors : '';
+  const annotation = req.body.annotation ? req.body.annotation : '';
+
+  const insertQuery = `insert into bookshelf (isbn, name, authors, annotation) values ('${isbn}', '${name}','${authors}','${annotation}');`;
+
+  console.log(req.body, insertQuery);
+
   const qRes = await pool.query(insertQuery);
 
   res.send(req.body);
