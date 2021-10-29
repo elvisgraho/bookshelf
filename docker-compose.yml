@@ -1,0 +1,33 @@
+version: '3.8' # optional since v1.27.0
+services:
+  node:
+    container_name: 'bookshelfapi' #nodejspost
+    build: .
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./:/home/node/app
+    depends_on:
+      - postgresqls
+    ports:
+      - '3150:3150'
+    networks:
+      - default
+    command: 'npm start'
+  postgresqls:
+    container_name: 'postgresqlpostgis'
+    image: 'postgis/postgis'
+    ports:
+      - '5433:5432'
+    volumes:
+      - db_persdata:/var/lib/postgrespers
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: bookshelf
+    networks:
+      - default
+networks:
+  default:
+volumes:
+  db_persdata: {}
