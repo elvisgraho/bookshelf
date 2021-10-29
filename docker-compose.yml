@@ -2,7 +2,9 @@ version: '3.8' # optional since v1.27.0
 services:
   node:
     container_name: 'bookshelfapi' #nodejspost
-    build: .
+    build:
+      dockerfile: Dockerfile
+      context: './server'
     environment:
       - NODE_ENV=production
     volumes:
@@ -15,12 +17,13 @@ services:
       - default
     command: 'npm start'
   postgresqls:
+    restart: always
     container_name: 'postgresqlpostgis'
     image: 'postgis/postgis'
     ports:
       - '5433:5432'
     volumes:
-      - db_persdata:/var/lib/postgrespers
+      - './setup.sql:/docker-entrypoint-initdb.d/setup.sql'
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
