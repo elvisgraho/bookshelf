@@ -86,29 +86,16 @@ app.put('/update/:bookId', async (req, res, next) => {
   }
 });
 
-app.get('/initData', async (req, res, next) => {
+app.get('/add', async (req, res, next) => {
   // init random books
   // `isbn` varchar(30) NOT NULL,
   // `name` varchar(50) NOT NULL,
   // `authors` varchar(50) NOT NULL,
   // `annotation` varchar(100) NOT NULL,
   try {
-    const insertQuery1 = `insert into bookshelf (isbn, name, authors, annotation) values ('${
-      0 - 5510 - 7005 - 1
-    }', 'Test Book 1', 'Peter Meter', 'Annotation test 1');`;
-    await pool.query(insertQuery1);
-    const insertQuery2 = `insert into bookshelf (isbn, name, authors, annotation) values ('${
-      0 - 5510 - 7005 - 2
-    }', 'Test Book 2', 'Bob Peter', 'Annotation test 2');`;
-    await pool.query(insertQuery2);
-    const insertQuery3 = `insert into bookshelf (isbn, name, authors, annotation) values ('${
-      0 - 5510 - 7005 - 3
-    }', 'Test Book 3', 'Day Morgan', 'Annotation test 3');`;
-    await pool.query(insertQuery3);
-    const insertQuery4 = `insert into bookshelf (isbn, name, authors, annotation) values ('${
-      0 - 5510 - 7005 - 4
-    }', 'Test Book 4', 'Neg Meg', 'Annotation test 4');`;
-    await pool.query(insertQuery4);
+    const randomData = Math.floor(Math.random() * 10000);
+    const insertQuery = `insert into bookshelf (isbn, name, authors, annotation) values ('0-5510-${randomData}-1', 'Test Book ${randomData}', 'Peter Meter', 'Annotation test ${randomData}');`;
+    await pool.query(insertQuery);
 
     res.send(req.body);
   } catch (err) {

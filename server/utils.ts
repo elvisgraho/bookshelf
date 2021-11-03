@@ -11,16 +11,16 @@ export function updateDataToString(reqBody: any): string {
 
   let updateString: string = '';
 
-  if (typeof isbn == 'string' && isbn.length > 0) {
+  if (typeof isbn == 'string') {
     updateString = `isbn = '${isbn}',`;
   }
-  if (typeof name == 'string' && name.length > 0) {
+  if (typeof name == 'string') {
     updateString = `${updateString} name = '${name}',`;
   }
-  if (typeof authors == 'string' && authors.length > 0) {
+  if (typeof authors == 'string') {
     updateString = `${updateString} authors = '${authors}',`;
   }
-  if (typeof annotation == 'string' && annotation.length > 0) {
+  if (typeof annotation == 'string') {
     updateString = `${updateString} annotation = '${annotation}',`;
   }
   // remove last comma
