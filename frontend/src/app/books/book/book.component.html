@@ -1,5 +1,5 @@
-<div class="book">
-  <div class="book__badges">
+<mat-card class="book">
+  <!-- <div class="book__badges">
     <button class="book__badges__badge">
       <p>Edit</p>
     </button>
@@ -9,12 +9,7 @@
   </div>
 
   <div class="book__head">
-    <div class="book__head__item">
-      <p class="book__head__item-heading">Id</p>
-      <p class="book__head__item-text">
-        {{ bookData.id }}
-      </p>
-    </div>
+
     <div class="book__head__item">
       <p class="book__head__item-heading">ISBN</p>
       <p class="book__head__item-text">
@@ -30,12 +25,24 @@
     <div class="book__head__item">
       <p class="book__head__item-heading">Authors</p>
       <p class="book__head__item-text">
-        {{ bookData.authors }}
+        {{  }}
       </p>
     </div>
   </div>
 
   <div class="book__body">
-    <p class="book__body-annotation">{{ bookData.annotation }}</p>
-  </div>
-</div>
+    <p class="book__body-annotation">{{  }}</p>
+  </div> -->
+
+  <mat-card-title>[{{ bookData.id }}] {{ bookData.name }}</mat-card-title>
+  <mat-card-subtitle>{{ bookData.authors }}</mat-card-subtitle>
+  <mat-card-content>
+    <p>{{ bookData.annotation }}</p>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-button>Edit</button>
+    <button mat-button>Delete</button>
+  </mat-card-actions>
+</mat-card>
+
+<br />

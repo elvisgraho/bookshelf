@@ -3,7 +3,10 @@
 
   <section class="app__section">
     <h2>List of all availible books</h2>
-    <button (click)="addRandom()">AddRandom</button>
+    <button mat-raised-button color="primary" (click)="addRandom()">
+      AddRandom
+    </button>
+    <br />
     <app-books></app-books>
   </section>
 </main>
