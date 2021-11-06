@@ -1,9 +1,17 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BooksService {
+  private mainApi = 'http://localhost:3150';
+  //private mainApi = 'http://bookshelfapi:3150';
 
-  constructor() { }
+  constructor(private http: HttpClient) {}
+
+  public async getBooks() {
+    const resp = await this.http.get(`${this.mainApi}/`).toPromise();
+    console.log(resp);
+  }
 }

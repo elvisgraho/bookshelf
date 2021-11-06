@@ -1,6 +1,7 @@
 import { updateDataToString } from './utils';
 import express from 'express';
 import { Request, Response } from 'express';
+const cors = require('cors');
 
 // Set our postgres environement
 const { Pool } = require('pg');
@@ -14,6 +15,7 @@ const pool = new Pool({
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
