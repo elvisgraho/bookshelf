@@ -1,7 +1,22 @@
-version: '3.8' # optional since v1.27.0
+version: '3.8'
 services:
+  frontend:
+    container_name: 'frontend'
+    build:
+      dockerfile: Dockerfile
+      context: './frontend'
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - /app/node_modules
+    depends_on:
+      - node
+    ports:
+      - '4200:4200'
+    networks:
+      - default
   node:
-    container_name: 'bookshelfapi' #nodejspost
+    container_name: 'bookshelfapi'
     build:
       dockerfile: Dockerfile
       context: './server'
@@ -9,13 +24,13 @@ services:
       - NODE_ENV=production
     volumes:
       - ./:/home/node/app
+        - /app/node_modules
     depends_on:
       - postgresqls
     ports:
       - '3150:3150'
     networks:
       - default
-    command: 'npm start'
   postgresqls:
     restart: always
     container_name: 'postgresqlpostgis'

@@ -1,0 +1,19 @@
+@import "../assets/scss/mixins.scss";
+
+.app {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+
+  width: calc(100% - 10px);
+
+  padding-top: 60px;
+
+  @include medium {
+    padding-top: 30px;
+  }
+}

@@ -1,0 +1,10 @@
+.header {
+  position: relative;
+  width: 100%;
+
+  border-bottom: 1px solid black;
+
+  &-title {
+    font-style: italic;
+  }
+}
