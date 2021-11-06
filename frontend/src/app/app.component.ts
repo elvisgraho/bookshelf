@@ -16,4 +16,8 @@ export class AppComponent implements OnInit {
   getStuff() {
     this.booksService.getBooks();
   }
+
+  addRandom() {
+    this.booksService.addRandomBook();
+  }
 }

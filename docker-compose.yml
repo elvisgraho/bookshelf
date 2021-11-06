@@ -1,21 +1,21 @@
 version: '3.8'
 services:
-  frontend:
-    container_name: 'frontend'
-    build:
-      dockerfile: Dockerfile
-      context: './frontend'
-    environment:
-      - NODE_ENV=production
-    volumes:
-      - .:/usr/src/app
-    depends_on:
-      - node
-    ports:
-      - '80:80'
-    networks:
-      - default
-    restart: always
+  # frontend:
+  #   container_name: 'frontend'
+  #   build:
+  #     dockerfile: Dockerfile
+  #     context: './frontend'
+  #   environment:
+  #     - NODE_ENV=production
+  #   volumes:
+  #     - .:/usr/src/app
+  #   depends_on:
+  #     - node
+  #   ports:
+  #     - '80:80'
+  #   networks:
+  #     - default
+  #   restart: always
   node:
     container_name: 'bookshelfapi'
     build:

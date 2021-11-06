@@ -64,7 +64,7 @@ app.post('/book', async (req, res, next) => {
   }
 });
 
-app.delete('/delete/:bookId', async (req, res, next) => {
+app.delete('/book/:bookId', async (req, res, next) => {
   try {
     const bookId = req.params.bookId;
     const deleteQuery = `DELETE FROM bookshelf WHERE id = ${bookId}`;
@@ -76,7 +76,7 @@ app.delete('/delete/:bookId', async (req, res, next) => {
   }
 });
 
-app.put('/update/:bookId', async (req, res, next) => {
+app.put('/book/:bookId', async (req, res, next) => {
   try {
     const bookId = req.params.bookId;
     const updateString = updateDataToString(req.body);

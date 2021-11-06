@@ -1,4 +1,5 @@
 <section class="books">
-  Books Works
-  <app-book></app-book>
+  <div class="books__wrapper">
+    <app-book *ngFor="let bookData of books" [bookData]="bookData"></app-book>
+  </div>
 </section>

@@ -1,1 +1,41 @@
-<div class="book">book</div>
+<div class="book">
+  <div class="book__badges">
+    <button class="book__badges__badge">
+      <p>Edit</p>
+    </button>
+    <button class="book__badges__badge">
+      <p>Delete</p>
+    </button>
+  </div>
+
+  <div class="book__head">
+    <div class="book__head__item">
+      <p class="book__head__item-heading">Id</p>
+      <p class="book__head__item-text">
+        {{ bookData.id }}
+      </p>
+    </div>
+    <div class="book__head__item">
+      <p class="book__head__item-heading">ISBN</p>
+      <p class="book__head__item-text">
+        {{ bookData.isbn }}
+      </p>
+    </div>
+    <div class="book__head__item">
+      <p class="book__head__item-heading">Name</p>
+      <p class="book__head__item-text">
+        {{ bookData.name }}
+      </p>
+    </div>
+    <div class="book__head__item">
+      <p class="book__head__item-heading">Authors</p>
+      <p class="book__head__item-text">
+        {{ bookData.authors }}
+      </p>
+    </div>
+  </div>
+
+  <div class="book__body">
+    <p class="book__body-annotation">{{ bookData.annotation }}</p>
+  </div>
+</div>
