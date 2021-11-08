@@ -1,5 +1,9 @@
 <section class="books">
   <div class="books__wrapper">
     <app-book *ngFor="let bookData of books" [bookData]="bookData"></app-book>
+
+    <p class="books-no-books" *ngIf="!books || books.length == 0">
+      No books found. Please add more books.
+    </p>
   </div>
 </section>

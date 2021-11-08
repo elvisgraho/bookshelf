@@ -1,0 +1,32 @@
+<mat-card class="add-book">
+  <form class="add-book-form">
+    <div class="add-book-form__primary">
+      <mat-form-field appearance="fill">
+        <mat-label>ISBN</mat-label>
+        <input (input)="onInput($event, 'isbn')" matInput />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input (input)="onInput($event, 'name')" matInput />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Authors</mat-label>
+        <input (input)="onInput($event, 'authors')" matInput />
+      </mat-form-field>
+    </div>
+
+    <div class="add-book-form__secondary">
+      <mat-form-field appearance="fill">
+        <mat-label>Annotation</mat-label>
+        <textarea (input)="onInput($event, 'annotation')" matInput></textarea>
+      </mat-form-field>
+    </div>
+  </form>
+
+  <div class="add-book__buttons">
+    <button (click)="dismiss()" mat-raised-button>Dismiss</button>
+    <button (click)="addBook()" mat-raised-button color="primary">
+      Add Book
+    </button>
+  </div>
+</mat-card>

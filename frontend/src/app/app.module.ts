@@ -36,9 +36,10 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
+import { AddBookComponent } from './add-book/add-book.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, BooksComponent, BookComponent],
+  declarations: [AppComponent, HeaderComponent, BooksComponent, BookComponent, AddBookComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

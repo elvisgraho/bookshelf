@@ -1,0 +1,33 @@
+.add-book {
+  &-form {
+    // display: flex;
+    // flex-direction: column;
+    // flex-wrap: wrap;
+    position: relative;
+
+    .mat-form-field {
+      margin-right: 10px;
+    }
+
+    &__primary {
+      // display: flex;
+      // flex-wrap: wrap;
+      // justify-content: center;
+    }
+
+    &__secondary {
+      // display: flex;
+      // justify-content: center;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    button {
+      //margin-right: 10px;
+    }
+  }
+}

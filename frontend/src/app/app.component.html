@@ -2,10 +2,18 @@
   <app-header></app-header>
 
   <section class="app__section">
-    <h2>List of all availible books</h2>
-    <button mat-raised-button color="primary" (click)="addRandom()">
-      AddRandom
-    </button>
+    <div class="app__buttons">
+      <button mat-raised-button color="primary" (click)="toggleAddBook()">
+        Add Book
+      </button>
+      <button mat-raised-button color="secondary" (click)="addRandom()">
+        Add Random
+      </button>
+    </div>
+
+    <div *ngIf="isAddBookVisible" class="app__add-book">
+      <app-add-book (onDismiss)="toggleAddBook()"></app-add-book>
+    </div>
     <br />
     <app-books></app-books>
   </section>

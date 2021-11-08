@@ -7,7 +7,7 @@ import { BooksService } from './books/services/books.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'frontend';
+  public isAddBookVisible: boolean = false;
 
   constructor(private booksService: BooksService) {}
 
@@ -17,7 +17,11 @@ export class AppComponent implements OnInit {
     this.booksService.getBooks();
   }
 
-  addRandom() {
+  public addRandom() {
     this.booksService.addRandomBook();
+  }
+
+  public toggleAddBook() {
+    this.isAddBookVisible = !this.isAddBookVisible;
   }
 }
