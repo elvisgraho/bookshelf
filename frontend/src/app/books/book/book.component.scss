@@ -1,29 +1,6 @@
 .book {
-  &__head {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    max-width: 400px;
-
-    &__item {
-      display: flex;
-      flex-direction: column;
-      &-heading {
-        margin-bottom: 0px;
-        font-size: 14px;
-      }
-
-      &-text {
-      }
-    }
-  }
-
-  &__body {
-    margin-top: 5px;
-    &-annotation {
-      font-style: italic;
-    }
-  }
+  margin-top: 10px;
+  margin-bottom: 10px;
 
   &-isbn {
     margin-right: auto;
@@ -32,5 +9,15 @@
     padding: 0px;
     margin-bottom: 0px;
     font-size: 13px;
+  }
+
+  .mat-form-field {
+    margin-right: 10px;
+  }
+
+  &__edit-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 }

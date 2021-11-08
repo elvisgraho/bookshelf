@@ -1,4 +1,4 @@
-<mat-card class="book">
+<mat-card *ngIf="!isEditMode" class="book">
   <mat-card-title>[{{ bookData.id }}] {{ bookData.name }}</mat-card-title>
   <mat-card-subtitle>{{ bookData.authors }}</mat-card-subtitle>
   <mat-card-content>
@@ -6,9 +6,58 @@
   </mat-card-content>
   <mat-card-actions align="end">
     <p class="book-isbn">{{ bookData.isbn }}</p>
-    <button mat-button>Edit</button>
+    <button mat-button (click)="toggleEditMode()">Edit</button>
     <button mat-button (click)="deleteBook()">Delete</button>
   </mat-card-actions>
 </mat-card>
 
-<br />
+<mat-card *ngIf="isEditMode" class="book">
+  <mat-card-title>[{{ bookData.id }}] {{ bookData.name }}</mat-card-title>
+
+  <form class="book-form">
+    <div class="book-form__primary">
+      <mat-form-field appearance="fill">
+        <mat-label>ISBN</mat-label>
+        <input
+          (input)="onInput($event, 'isbn')"
+          matInput
+          [value]="formValues.isbn"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input
+          (input)="onInput($event, 'name')"
+          matInput
+          [value]="formValues.name"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Authors</mat-label>
+        <input
+          (input)="onInput($event, 'authors')"
+          matInput
+          [value]="formValues.authors"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="book-form__secondary">
+      <mat-form-field appearance="fill">
+        <mat-label>Annotation</mat-label>
+        <textarea
+          (input)="onInput($event, 'annotation')"
+          matInput
+          [value]="formValues.annotation"
+        ></textarea>
+      </mat-form-field>
+    </div>
+  </form>
+
+  <div class="book__edit-buttons">
+    <button (click)="dismissFormEdit()" mat-raised-button>Dismiss</button>
+    <button (click)="submitEdit()" mat-raised-button color="primary">
+      Save
+    </button>
+  </div>
+</mat-card>
