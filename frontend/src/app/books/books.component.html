@@ -1,9 +1,24 @@
 <section class="books">
+  <mat-form-field appearance="fill">
+    <mat-label>Search for a book</mat-label>
+    <input (input)="onSearchInput($event)" matInput />
+  </mat-form-field>
+
   <div class="books__wrapper">
-    <app-book *ngFor="let bookData of books" [bookData]="bookData"></app-book>
+    <app-book
+      *ngFor="let bookData of booksDisplay"
+      [bookData]="bookData"
+    ></app-book>
 
     <p class="books-no-books" *ngIf="!books || books.length == 0">
       No books found. Please add more books.
+    </p>
+
+    <p
+      class="books-no-books"
+      *ngIf="booksDisplay.length == 0 && books.length > 0"
+    >
+      No books found.
     </p>
   </div>
 </section>
