@@ -1,24 +1,11 @@
-# bookshelf
+# Bookshelf
 
-Db+BackendAPI+Frontent application for managing and storing Book-Relevant Information
+## Description
 
-Dev Commands
+This is a bookshelf application that allows to Write/Update/Delete books. It consists of frontend application, express API and postgreSQL database.
 
-```
+## Usage
 
-docker-compose build --no-cache
-docker-compose up -d
+Docker and Node are requirements. Run `npm run build` to build docker containers. Then run `npm run start` to start the application. Alternatively run `npm run run` to see the output of the application in the console.
 
-docker ps
-
---- test ---
-docker exec -it postgresqlpostgis bash
-psql -U postgres
-
-\c bookshelf
-
-create table bookshelf (id serial primary key, name varchar(64));
-insert into bookshelf (name) values ('test1');
-insert into bookshelf (name) values ('test2');
-
-```
+After everything is up an running the frontend application is accesible at http://localhost:80
